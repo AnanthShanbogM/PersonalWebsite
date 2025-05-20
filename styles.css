@@ -13,8 +13,9 @@ body {
     font-family: 'Inter', sans-serif;
     line-height: 1.6;
     color: #333;
-    background: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)),
-                url('images/background/DSC_0255.JPG');
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('images/background/DSC_0255.JPG');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
