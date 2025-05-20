@@ -8,11 +8,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <div class="particles"></div>
     <header>
         <nav>
             <div class="logo">Ananth Shanbog M</div>
-            <ul>
+            <div class="theme-toggle">
+                <button id="theme-toggle" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+            <ul
                 <li><a href="https://example.com/home" target="_blank"><i class="fas fa-home"></i> Home</a></li>
                 <li><a href="https://example.com/features" target="_blank"><i class="fas fa-cog"></i> Features</a></li>
                 <li><a href="https://example.com/portfolio" target="_blank"><i class="fas fa-briefcase"></i> Portfolio</a></li>
@@ -346,88 +350,7 @@
         });
 
     </script>
-        // Particle animation
-        const particles = document.querySelector('.particles');
-        const particleCount = 80;
-        const colors = ['#2563eb', '#3b82f6', '#60a5fa'];
 
-        function createParticle() {
-            const particle = document.createElement('div');
-            particle.className = 'particle';
-            
-            // Random size
-            const size = Math.random() * 2 + 1;
-            particle.style.width = `${size}px`;
-            particle.style.height = `${size}px`;
-            
-            // Random position
-            const x = Math.random() * window.innerWidth;
-            const y = Math.random() * window.innerHeight;
-            particle.style.left = `${x}px`;
-            particle.style.top = `${y}px`;
-            
-            // Random color
-            const color = colors[Math.floor(Math.random() * colors.length)];
-            particle.style.background = color;
-            
-            // Random animation duration
-            const duration = Math.random() * 10 + 5;
-            particle.style.animationDuration = `${duration}s`;
-            
-            // Random animation delay
-            const delay = Math.random() * -20;
-            particle.style.animationDelay = `${delay}s`;
-            
-            particles.appendChild(particle);
-        }
-
-        // Create particles
-        for (let i = 0; i < particleCount; i++) {
-            createParticle();
-        }
-
-        // Update on window resize
-        window.addEventListener('resize', () => {
-            particles.innerHTML = '';
-            for (let i = 0; i < particleCount; i++) {
-                createParticle();
-            }
-        });
-
-        // Add mouse interaction
-        let mouse = { x: 0, y: 0 };
-        
-        window.addEventListener('mousemove', (e) => {
-            mouse.x = e.clientX;
-            mouse.y = e.clientY;
-        });
-
-        function updateParticles() {
-            const particles = document.querySelectorAll('.particle');
-            particles.forEach(particle => {
-                const rect = particle.getBoundingClientRect();
-                const dx = mouse.x - rect.left;
-                const dy = mouse.y - rect.top;
-                const distance = Math.sqrt(dx * dx + dy * dy);
-                
-                if (distance < 100) {
-                    const force = (100 - distance) / 100;
-                    const angle = Math.atan2(dy, dx);
-                    
-                    particle.style.transform = `
-                        translate(
-                            ${force * Math.cos(angle) * 10}px,
-                            ${force * Math.sin(angle) * 10}px
-                        )
-                    `;
-                } else {
-                    particle.style.transform = 'translate(0, 0)';
-                }
-            });
-        }
-
-        // Update particles every frame
-        setInterval(updateParticles, 16); // ~60 FPS
 
     </script>
 </body>
