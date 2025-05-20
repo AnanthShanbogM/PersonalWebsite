@@ -1,6 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500;600&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500;600&display=swap');
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 /* Reset and base styles */
 * {
@@ -12,26 +17,81 @@
 body {
     font-family: 'Inter', sans-serif;
     line-height: 1.6;
-    color: #333;
     margin: 0;
     padding: 0;
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('images/background/DSC_0255.JPG');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+    background: var(--primary-bg);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Navigation */
 nav {
     background: var(--nav-bg);
     backdrop-filter: blur(10px);
-    box-shadow: 0 2px 15px var(--nav-shadow);
+    box-shadow: var(--nav-shadow);
     padding: 1.5rem 2rem;
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
     border-bottom: 2px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+}
+
+nav ul a:hover {
+    color: var(--accent-color);
+    background: var(--hover-bg);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-color);
+}
+
+/* Responsive Navigation */
+@media (max-width: 768px) {
+    nav {
+        padding: 1rem;
+    }
+
+    nav ul {
+        display: none;
+    }
+
+    .theme-toggle {
+        right: 1rem;
+    }
+
+    .logo {
+        font-size: 1.25rem;
+    }
+}
+
+@media (min-width: 769px) {
+    nav ul {
+        display: flex;
+    }
 }
 
 .theme-toggle {
