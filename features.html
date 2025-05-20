@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Features - Ananth Shanbog M</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Ananth Shanbog M</div>
+            <div class="theme-toggle">
+                <button id="theme-toggle" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="features">
+            <h2>What I Offer</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-code feature-icon"></i>
+                    <h3>Web Development</h3>
+                    <p>Building responsive and user-friendly websites</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-mobile-alt feature-icon"></i>
+                    <h3>Mobile Apps</h3>
+                    <p>Creating native and cross-platform applications</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-paint-brush feature-icon"></i>
+                    <h3>UI/UX Design</h3>
+                    <p>Designing intuitive and beautiful interfaces</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        
+        document.documentElement.setAttribute('data-theme', currentTheme);
+        
+        function updateThemeIcon() {
+            const icon = themeToggle.querySelector('i');
+            if (document.documentElement.getAttribute('data-theme') === 'dark') {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            } else {
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            }
+        }
+        
+        themeToggle.addEventListener('click', () => {
+            const newTheme = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon();
+        });
+        
+        updateThemeIcon();
+    </script>
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testimonials - Ananth Shanbog M</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Ananth Shanbog M</div>
+            <div class="theme-toggle">
+                <button id="theme-toggle" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="testimonials">
+            <h2>What Clients Say</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="client-details">
+                            <h3>John Doe</h3>
+                            <p>CEO, Tech Company</p>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-content">
+                        <p>"Ananth is a talented developer who delivered our project ahead of schedule. His attention to detail and communication skills are outstanding. The final product exceeded our expectations in terms of both functionality and design."
+                        <div class="project-info">
+                            <div class="project-detail">
+                                <i class="fas fa-briefcase"></i>
+                                <span>Project: E-commerce Platform</span>
+                            </div>
+                            <div class="project-detail">
+                                <i class="fas fa-clock"></i>
+                                <span>Duration: 3 months</span>
+                            </div>
+                            <div class="project-detail">
+                                <i class="fas fa-users"></i>
+                                <span>Team Size: 1 member</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="client-details">
+                            <h3>Jane Smith</h3>
+                            <p>CTO, Startup</p>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-content">
+                        <p>"Working with Ananth was a pleasure. He quickly understood our requirements and delivered a solution that perfectly matched our needs. His technical expertise and problem-solving skills are exceptional."
+                        <div class="project-info">
+                            <div class="project-detail">
+                                <i class="fas fa-briefcase"></i>
+                                <span>Project: Mobile App</span>
+                            </div>
+                            <div class="project-detail">
+                                <i class="fas fa-clock"></i>
+                                <span>Duration: 2 months</span>
+                            </div>
+                            <div class="project-detail">
+                                <i class="fas fa-users"></i>
+                                <span>Team Size: 1 member</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="client-details">
+                            <h3>Mike Johnson</h3>
+                            <p>Product Manager</p>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-content">
+                        <p>"Ananth's technical knowledge and ability to work under pressure are impressive. He consistently delivered high-quality code and was always available to help when we needed it."
+                        <div class="project-info">
+                            <div class="project-detail">
+                                <i class="fas fa-briefcase"></i>
+                                <span>Project: Web Application</span>
+                            </div>
+                            <div class="project-detail">
+                                <i class="fas fa-clock"></i>
+                                <span>Duration: 4 months</span>
+                            </div>
+                            <div class="project-detail">
+                                <i class="fas fa-users"></i>
+                                <span>Team Size: 2 members</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        
+        document.documentElement.setAttribute('data-theme', currentTheme);
+        
+        function updateThemeIcon() {
+            const icon = themeToggle.querySelector('i');
+            if (document.documentElement.getAttribute('data-theme') === 'dark') {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            } else {
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            }
+        }
+        
+        themeToggle.addEventListener('click', () => {
+            const newTheme = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon();
+        });
+        
+        updateThemeIcon();
+    </script>
+</body>
+</html>

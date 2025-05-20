@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Clicks - Ananth Shanbog M</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .gallery-item .description {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 1rem;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+        }
+
+        .gallery-item:hover .description {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Ananth Shanbog M</div>
+            <div class="theme-toggle">
+                <button id="theme-toggle" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="myclicks">
+            <h2>My Clicks</h2>
+            <div class="gallery-container">
+                <!-- Images will be loaded dynamically -->
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        
+        document.documentElement.setAttribute('data-theme', currentTheme);
+        
+        function updateThemeIcon() {
+            const icon = themeToggle.querySelector('i');
+            if (document.documentElement.getAttribute('data-theme') === 'dark') {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            } else {
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            }
+        }
+        
+        themeToggle.addEventListener('click', () => {
+            const newTheme = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon();
+        });
+        
+        updateThemeIcon();
+
+        // Initialize gallery
+        function initializeGallery() {
+            const galleryContainer = document.querySelector('.gallery-container');
+            const images = [
+                { src: 'images/images_2/1.jpg', description: 'Photography 1' },
+                { src: 'images/images_2/2.jpg', description: 'Photography 2' },
+                { src: 'images/images_2/3.jpg', description: 'Photography 3' },
+                { src: 'images/images_2/4.jpg', description: 'Photography 4' },
+                { src: 'images/images_2/5.jpg', description: 'Photography 5' },
+                { src: 'images/images_2/6.jpg', description: 'Photography 6' },
+                { src: 'images/images_2/7.jpg', description: 'Photography 7' },
+                { src: 'images/images_2/8.jpg', description: 'Photography 8' },
+                { src: 'images/images_2/9.jpg', description: 'Photography 9' },
+                { src: 'images/images_2/10.jpg', description: 'Photography 10' }
+            ];
+
+            images.forEach(image => {
+                const galleryItem = document.createElement('div');
+                galleryItem.className = 'gallery-item';
+                galleryItem.innerHTML = `
+                    <img src="${image.src}" alt="${image.description}">
+                    <div class="description">
+                        <h3>${image.description}</h3>
+                    </div>
+                `;
+                galleryContainer.appendChild(galleryItem);
+            });
+        }
+
+        // Initialize gallery when images are loaded
+        window.addEventListener('load', initializeGallery);
+
+        // Add animation on scroll
+        const animateOnScroll = () => {
+            const items = document.querySelectorAll('.gallery-item');
+            
+            items.forEach(item => {
+                const itemTop = item.getBoundingClientRect().top;
+                const isVisible = (itemTop - window.innerHeight) < 0;
+                
+                if (isVisible) {
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateY(0)';
+                }
+            });
+        };
+
+        window.addEventListener('scroll', animateOnScroll);
+        animateOnScroll();
+    </script>
+</body>
+</html>
