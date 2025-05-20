@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500;600&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500;600&display=swap');
+
 /* Reset and base styles */
 * {
     margin: 0;
@@ -11,14 +13,14 @@ body {
     font-family: 'Inter', sans-serif;
     line-height: 1.6;
     color: #333;
-    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    background: #f8f9fa;
 }
 
 /* Navigation */
 nav {
-    background: rgba(255, 255, 255, 0.95);
+    background: #ffffff;
     padding: 1.5rem 2rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
     position: fixed;
     width: 100%;
     top: 0;
@@ -30,7 +32,6 @@ nav {
     font-size: 2rem;
     font-weight: 700;
     color: #2563eb;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 nav ul {
@@ -66,14 +67,46 @@ nav a:hover::after {
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)),
+    padding: 12rem 2rem 8rem;
+    background: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)),
                 url('https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1920&q=80');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
     text-align: center;
-    padding: 8rem 2rem 12rem;
     margin-top: 6rem;
+}
+
+.profile-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.profile-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.profile-image:hover {
+    transform: scale(1.05);
+}
+
+.profile-details {
+    text-align: left;
+    max-width: 600px;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .hero h1 {
@@ -81,100 +114,172 @@ nav a:hover::after {
     font-size: 4rem;
     color: #2563eb;
     margin-bottom: 1.5rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    line-height: 1.2;
 }
 
 .hero p {
-    font-size: 1.2rem;
-    max-width: 600px;
-    margin: 0 auto;
+    font-size: 1.5rem;
     color: #666;
-}
-
-/* About Section */
-.about {
-    padding: 6rem 2rem;
-    background: #f8f9fa;
-}
-
-.about h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.5rem;
-    color: #2563eb;
     margin-bottom: 2rem;
 }
 
-/* Projects Section */
-.projects {
+/* Features Section */
+.features {
     padding: 6rem 2rem;
-    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    background: #ffffff;
 }
 
-.project-grid {
+.features-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2.5rem;
+    gap: 3rem;
     margin-top: 3rem;
 }
 
-.project-card {
-    background: white;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+.feature-card {
+    text-align: center;
+    padding: 2rem;
     transition: transform 0.3s ease;
 }
 
-.project-card:hover {
-    transform: translateY(-5px);
+.feature-card:hover {
+    transform: translateY(-10px);
 }
 
-.project-image {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-}
-
-.project-content {
-    padding: 1.5rem;
-}
-
-.project-content h3 {
-    font-family: 'Playfair Display', serif;
+.feature-icon {
+    font-size: 2.5rem;
     color: #2563eb;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
 }
 
-/* Contact Form */
-.contact {
+/* Portfolio Section */
+.portfolio {
     padding: 6rem 2rem;
     background: #f8f9fa;
 }
 
-#contact-form {
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.portfolio-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.portfolio-item:hover {
+    transform: translateY(-10px);
+}
+
+.portfolio-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.portfolio-item:hover .portfolio-image {
+    transform: scale(1.05);
+}
+
+.portfolio-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(37, 99, 235, 0.9);
+    color: white;
+    padding: 1.5rem;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.portfolio-item:hover .portfolio-overlay {
+    transform: translateY(0);
+}
+
+/* Testimonials Section */
+.testimonials {
+    padding: 6rem 2rem;
+    background: #ffffff;
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+    margin-top: 3rem;
+}
+
+.testimonial-card {
+    text-align: center;
+    padding: 2rem;
+    background: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* CTA Section */
+.cta {
+    padding: 6rem 2rem;
+    background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+    color: white;
+    text-align: center;
+}
+
+.cta h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.cta-button {
+    background: white;
+    color: #2563eb;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+    background: #e0e7ff;
+    transform: translateY(-2px);
+}
+
+/* Contact Section */
+.contact {
+    padding: 6rem 2rem;
+    background: #ffffff;
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-    max-width: 600px;
-    margin: 0 auto;
-    background: white;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 input, textarea {
     padding: 1rem;
-    border: 2px solid #ddd;
+    border: 2px solid #e5e7eb;
     border-radius: 8px;
     font-size: 1rem;
     font-family: 'Inter', sans-serif;
-    transition: border-color 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 input:focus, textarea:focus {
     outline: none;
     border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
 }
 
 textarea {
@@ -182,26 +287,47 @@ textarea {
     resize: vertical;
 }
 
-button {
-    background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+/* Footer */
+footer {
+    background: #1f2937;
     color: white;
-    border: none;
-    padding: 1rem 2rem;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: 600;
-    font-family: 'Inter', sans-serif;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 4rem 2rem 2rem;
 }
 
-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-button:active {
-    transform: translateY(0);
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 3rem;
+    margin-bottom: 3rem;
+}
+
+.footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.footer-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.footer-links a {
+    color: #e5e7eb;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #2563eb;
 }
 
 /* Animations */
@@ -235,11 +361,19 @@ section {
         font-size: 2.5rem;
     }
     
-    .project-grid {
+    .hero p {
+        font-size: 1.2rem;
+    }
+    
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .features-grid {
         grid-template-columns: 1fr;
     }
     
     .hero {
-        padding: 6rem 1rem 8rem;
+        padding: 8rem 1rem 6rem;
     }
 }
