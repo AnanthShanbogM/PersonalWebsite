@@ -34,12 +34,30 @@ nav {
     border-bottom: 2px solid var(--border-color);
 }
 
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-color);
+    transition: color 0.3s ease;
+}
+
+.logo:hover {
+    color: var(--accent-color);
+}
+
+.nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1;
+}
+
 nav ul {
     list-style: none;
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: center;
     gap: 2.5rem;
     font-size: 1.15rem;
 }
@@ -55,24 +73,9 @@ nav a:hover {
     color: var(--accent-color);
 }
 
-.logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--text-color);
-    transition: color 0.3s ease;
-}
-
-.logo:hover {
-    color: var(--accent-color);
-}
-
 /* Theme Toggle */
 .theme-toggle {
-    position: absolute;
-    right: 2rem;
-    top: 50%;
-    transform: translateY(-50%);
+    margin-left: 2rem;
 }
 
 .theme-toggle button {
