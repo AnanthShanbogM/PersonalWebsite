@@ -228,7 +228,7 @@ label {
     padding: 0.5rem;
     border-radius: 50%;
     background: var(--accent-color);
-    color: white;
+    color: var(--text-dark);
     width: 35px;
     height: 35px;
     display: flex;
@@ -240,6 +240,15 @@ label {
 .theme-toggle button:hover {
     background: var(--accent-hover);
     transform: scale(1.1);
+}
+
+.theme-toggle i {
+    font-size: 1.2rem;
+    color: var(--text-dark);
+}
+
+[data-theme="dark"] .theme-toggle i {
+    color: var(--text-light);
 }
 
 /* Theme Variables */
@@ -264,6 +273,7 @@ label {
     --footer-text: #64748b;
     --card-text: #1e293b;
     --overlay-text: #ffffff;
+    --hero-bg: rgba(255, 255, 255, 0.95);
 }
 
 [data-theme="dark"] {
@@ -276,17 +286,18 @@ label {
     --accent-hover: #34d399;
     
     /* Dark mode text colors */
-    --text-primary: #f8fafc;
+    --text-primary: #ffffff;
     --text-secondary: #d1d5db;
-    --text-light: #f8fafc;
+    --text-light: #ffffff;
     --text-dark: #1e293b;
     --text-muted: #94a3b8;
     
     /* Component specific colors */
-    --nav-text: #f8fafc;
-    --footer-text: #94a3b8;
-    --card-text: #f8fafc;
+    --nav-text: #ffffff;
+    --footer-text: #d1d5db;
+    --card-text: #ffffff;
     --overlay-text: #ffffff;
+    --hero-bg: rgba(30, 41, 59, 0.95);
 }
 
 nav ul {
