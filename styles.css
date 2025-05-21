@@ -57,11 +57,62 @@ nav ul {
     font-size: 1.15rem;
 }
 
+/* Navigation Text Colors */
 nav a {
     color: var(--dark-text);
     text-decoration: none;
     font-weight: 600;
     transition: all 0.3s ease;
+}
+
+/* Main Content Text Colors */
+section h2 {
+    color: var(--text-color);
+}
+
+/* Contact Page Text Colors */
+.contact-item h3 {
+    color: var(--text-color);
+}
+
+.contact-item p {
+    color: #64748b;
+}
+
+/* Testimonials Page Text Colors */
+.client-details h3 {
+    color: var(--text-color);
+}
+
+.client-details p {
+    color: #64748b;
+}
+
+.testimonial-content p {
+    color: #64748b;
+}
+
+/* Portfolio Page Text Colors */
+.portfolio-overlay h3 {
+    color: var(--dark-bg-text);
+}
+
+.portfolio-overlay p {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Features Page Text Colors */
+.feature-card h3 {
+    color: var(--text-color);
+}
+
+.feature-card p {
+    color: #64748b;
+}
+
+/* Footer Text Colors */
+footer {
+    color: var(--light-text);
 }
 
 nav a:hover {
@@ -105,6 +156,8 @@ nav a:hover {
     --accent-hover: #45a049;
     --light-text: #1e293b;
     --dark-text: #ffffff;
+    --white-bg-text: #1e293b;
+    --dark-bg-text: #ffffff;
 }
 
 [data-theme="dark"] {
@@ -117,6 +170,8 @@ nav a:hover {
     --accent-hover: #34d399;
     --light-text: #f8fafc;
     --dark-text: #1e293b;
+    --white-bg-text: #1e293b;
+    --dark-bg-text: #ffffff;
 }
 
 nav ul {
