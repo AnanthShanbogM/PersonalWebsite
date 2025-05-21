@@ -25,6 +25,7 @@ nav {
     position: fixed;
     width: 100%;
     top: 0;
+    left: 0;
     z-index: 1000;
     border-bottom: 2px solid var(--border-color);
 }
@@ -57,62 +58,128 @@ nav ul {
     font-size: 1.15rem;
 }
 
+/* Base Text Colors */
+body {
+    color: var(--text-primary);
+}
+
 /* Navigation Text Colors */
 nav a {
-    color: var(--dark-text);
+    color: var(--text-light);
     text-decoration: none;
     font-weight: 600;
     transition: all 0.3s ease;
 }
 
+nav a:hover {
+    color: var(--accent-color);
+}
+
 /* Main Content Text Colors */
-section h2 {
-    color: var(--text-color);
+section h1, section h2, section h3 {
+    color: var(--text-primary);
+}
+
+section p {
+    color: var(--text-secondary);
 }
 
 /* Contact Page Text Colors */
 .contact-item h3 {
-    color: var(--text-color);
+    color: var(--text-primary);
 }
 
 .contact-item p {
-    color: #64748b;
+    color: var(--text-secondary);
 }
 
 /* Testimonials Page Text Colors */
 .client-details h3 {
-    color: var(--text-color);
+    color: var(--text-primary);
 }
 
 .client-details p {
-    color: #64748b;
+    color: var(--text-secondary);
 }
 
 .testimonial-content p {
-    color: #64748b;
+    color: var(--text-secondary);
 }
 
 /* Portfolio Page Text Colors */
 .portfolio-overlay h3 {
-    color: var(--dark-bg-text);
+    color: var(--text-dark);
 }
 
 .portfolio-overlay p {
-    color: rgba(255, 255, 255, 0.9);
+    color: var(--text-muted);
 }
 
 /* Features Page Text Colors */
 .feature-card h3 {
-    color: var(--text-color);
+    color: var(--text-primary);
 }
 
 .feature-card p {
-    color: #64748b;
+    color: var(--text-secondary);
 }
 
 /* Footer Text Colors */
 footer {
-    color: var(--light-text);
+    color: var(--text-light);
+}
+
+/* Button Text Colors */
+button, .cta-button {
+    color: var(--text-dark);
+}
+
+/* Form Elements */
+input, textarea, select {
+    color: var(--text-primary);
+}
+
+/* Links */
+a {
+    color: var(--accent-color);
+}
+
+/* Hover States */
+a:hover {
+    color: var(--accent-hover);
+}
+
+/* Social Links */
+.social-links a {
+    color: var(--text-light);
+}
+
+/* Icons */
+.fas, .fab {
+    color: var(--text-secondary);
+}
+
+/* Card Headers */
+.card-header {
+    color: var(--text-primary);
+}
+
+/* Card Content */
+.card-content {
+    color: var(--text-secondary);
+}
+
+/* Status Messages */
+.success {
+    color: #16a34a;
+}
+
+.error {
+    color: #dc2626;
+}
+
+.warning {
+    color: #ca8a04;
 }
 
 nav a:hover {
@@ -158,6 +225,11 @@ nav a:hover {
     --dark-text: #ffffff;
     --white-bg-text: #1e293b;
     --dark-bg-text: #ffffff;
+    --text-primary: #1e293b;
+    --text-secondary: #64748b;
+    --text-light: #f8fafc;
+    --text-dark: #1e293b;
+    --text-muted: #94a3b8;
 }
 
 [data-theme="dark"] {
@@ -172,6 +244,11 @@ nav a:hover {
     --dark-text: #1e293b;
     --white-bg-text: #1e293b;
     --dark-bg-text: #ffffff;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --text-light: #1e293b;
+    --text-dark: #f8fafc;
+    --text-muted: #d1d5db;
 }
 
 nav ul {
@@ -221,6 +298,8 @@ main {
     max-width: 1200px;
     margin: 0 auto;
     width: 100%;
+    position: relative;
+    z-index: 1;
 }
 
 /* Features Page */
