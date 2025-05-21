@@ -46,20 +46,32 @@
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            padding: 0.8rem 1.5rem;
-            background: var(--accent-color);
+            padding: 1rem 2rem;
+            background: #4CAF50;
             color: white;
             text-decoration: none;
-            border-radius: 5px;
-            transition: transform 0.3s ease;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            font-weight: 600;
+            border: 2px solid #4CAF50;
         }
 
         .tool-link:hover {
             transform: translateY(-2px);
+            background: #45a049;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            border-color: #45a049;
+        }
+
+        .tool-link:active {
+            transform: translateY(0);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
         }
 
         .tool-link i {
-            font-size: 1.2rem;
+            font-size: 1.5rem;
+            color: #fff;
         }
 
         .gallery-item {
@@ -165,31 +177,18 @@
             
             // Get all image files from images_2 folder
             const images = [
-                'images/images_2/1.jpg',
-                'images/images_2/2.jpg',
-                'images/images_2/3.jpg',
-                'images/images_2/4.jpg',
-                'images/images_2/5.jpg',
-                'images/images_2/6.jpg',
-                'images/images_2/7.jpg',
-                'images/images_2/8.jpg',
-                'images/images_2/9.jpg',
-                'images/images_2/10.jpg'
+                { src: 'images/images_2/Black and White Ananth.png', description: 'Black and White Portrait' },
+                { src: 'images/images_2/PSX_20200116_152458.png', description: 'Nature Photography' },
+                { src: 'images/images_2/PSX_20200116_152830,.png', description: 'Landscape Photography' },
+                { src: 'images/images_2/butterfly.png', description: 'Butterfly Photography' },
+                { src: 'images/images_2/jj.png', description: 'Portrait Photography' },
+                { src: 'images/images_2/l;.png', description: 'Abstract Photography' },
+                { src: 'images/images_2/new1.png', description: 'Minimalist Photography' },
+                { src: 'images/images_2/yourshot-1915765-13785249.png', description: 'Nature Photography' },
+                { src: 'images/images_2/yourshot-1915765-13785887.png', description: 'Landscape Photography' }
             ];
 
             // Create gallery items
-            images.forEach((imagePath, index) => {
-                const galleryItem = document.createElement('div');
-                galleryItem.className = 'gallery-item';
-                galleryItem.innerHTML = `
-                    <img src="${imagePath}" alt="Photography ${index + 1}">
-                    <div class="description">
-                        <h3>Photography ${index + 1}</h3>
-                    </div>
-                `;
-                galleryContainer.appendChild(galleryItem);
-            });
-
             images.forEach(image => {
                 const galleryItem = document.createElement('div');
                 galleryItem.className = 'gallery-item';
