@@ -6,51 +6,27 @@
     <title>Ananth Shanbog M | Personal Website</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <script>
-        // Theme toggle functionality
-        const themeToggle = document.getElementById('theme-toggle');
-        const currentTheme = localStorage.getItem('theme') || 'light';
-        
-        document.documentElement.setAttribute('data-theme', currentTheme);
-        
-        function updateThemeIcon() {
-            const icon = themeToggle.querySelector('i');
-            if (document.documentElement.getAttribute('data-theme') === 'dark') {
-                icon.classList.remove('fa-moon');
-                icon.classList.add('fa-sun');
-            } else {
-                icon.classList.remove('fa-sun');
-                icon.classList.add('fa-moon');
-            }
-        }
-        
-        themeToggle.addEventListener('click', () => {
-            const newTheme = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
-            document.documentElement.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-            updateThemeIcon();
-        });
-        
-        updateThemeIcon();
-    </script>
+    <script src="theme.js"></script>
 </head>
 <body>
     <header>
         <nav>
             <div class="logo">Ananth Shanbog M</div>
-            <div class="theme-toggle">
-                <button id="theme-toggle" aria-label="Toggle theme">
-                    <i class="fas fa-moon"></i>
-                </button>
+            <div class="nav-content">
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="features.html"><i class="fas fa-cog"></i> Features</a></li>
+                    <li><a href="portfolio.html"><i class="fas fa-briefcase"></i> Portfolio</a></li>
+                    <li><a href="testimonials.html"><i class="fas fa-star"></i> Testimonials</a></li>
+                    <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+                    <li><a href="myclicks.html"><i class="fas fa-camera"></i> My Clicks</a></li>
+                </ul>
+                <div class="theme-toggle">
+                    <button id="theme-toggle" aria-label="Toggle theme">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
             </div>
-            <ul>
-                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
-                <li><a href="features.html"><i class="fas fa-cog"></i> Features</a></li>
-                <li><a href="portfolio.html"><i class="fas fa-briefcase"></i> Portfolio</a></li>
-                <li><a href="testimonials.html"><i class="fas fa-star"></i> Testimonials</a></li>
-                <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
-                <li><a href="myclicks.html"><i class="fas fa-camera"></i> My Clicks</a></li>
-            </ul>
         </nav>
     </header>
 

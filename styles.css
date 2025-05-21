@@ -58,7 +58,7 @@ nav ul {
 }
 
 nav a {
-    color: var(--text-color);
+    color: var(--dark-text);
     text-decoration: none;
     font-weight: 600;
     transition: all 0.3s ease;
@@ -103,6 +103,8 @@ nav a:hover {
     --border-color: #e2e8f0;
     --accent-color: #4CAF50;
     --accent-hover: #45a049;
+    --light-text: #1e293b;
+    --dark-text: #ffffff;
 }
 
 [data-theme="dark"] {
@@ -113,6 +115,8 @@ nav a:hover {
     --border-color: #475569;
     --accent-color: #6ee7b7;
     --accent-hover: #34d399;
+    --light-text: #f8fafc;
+    --dark-text: #1e293b;
 }
 
 nav ul {
