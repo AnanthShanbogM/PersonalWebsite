@@ -23,6 +23,45 @@
             margin: 0 auto;
         }
 
+        .image-tools-section {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 2rem;
+            background: var(--primary-bg);
+            border-radius: 10px;
+            box-shadow: 0 4px 6px var(--nav-shadow);
+        }
+
+        .image-tools-section h3 {
+            color: var(--text-color);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .tool-links {
+            text-align: center;
+        }
+
+        .tool-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            background: var(--accent-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: transform 0.3s ease;
+        }
+
+        .tool-link:hover {
+            transform: translateY(-2px);
+        }
+
+        .tool-link i {
+            font-size: 1.2rem;
+        }
+
         .gallery-item {
             position: relative;
             border-radius: 10px;
@@ -80,6 +119,15 @@
             <h2>My Clicks</h2>
             <div class="gallery-container">
                 <!-- Images will be loaded dynamically -->
+            </div>
+
+            <div class="image-tools-section">
+                <h3>Image Tools</h3>
+                <div class="tool-links">
+                    <a href="https://image-resizer-app.windsurf.build/" target="_blank" class="tool-link">
+                        <i class="fas fa-image"></i> Image Resizer
+                    </a>
+                </div>
             </div>
         </section>
     </main>
