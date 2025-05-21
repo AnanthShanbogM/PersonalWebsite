@@ -23,15 +23,65 @@ body {
 
 /* Navigation */
 nav {
-    background: rgba(255, 255, 255, 0.95);
+    background: var(--nav-bg);
     backdrop-filter: blur(10px);
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 15px var(--nav-shadow);
     padding: 1.5rem 2rem;
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
-    border-bottom: 2px solid #e2e8f0;
+    border-bottom: 2px solid var(--border-color);
+}
+
+/* Theme Toggle */
+.theme-toggle {
+    position: absolute;
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.theme-toggle button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50%;
+    background: var(--accent-color);
+    color: white;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.theme-toggle button:hover {
+    background: var(--accent-hover);
+    transform: scale(1.1);
+}
+
+/* Theme Variables */
+:root {
+    --primary-bg: #ffffff;
+    --text-color: #1e293b;
+    --nav-bg: rgba(255, 255, 255, 0.95);
+    --nav-shadow: rgba(0, 0, 0, 0.1);
+    --border-color: #e2e8f0;
+    --accent-color: #4CAF50;
+    --accent-hover: #45a049;
+}
+
+[data-theme="dark"] {
+    --primary-bg: #1e293b;
+    --text-color: #f8fafc;
+    --nav-bg: rgba(30, 41, 59, 0.95);
+    --nav-shadow: rgba(0, 0, 0, 0.2);
+    --border-color: #475569;
+    --accent-color: #6ee7b7;
+    --accent-hover: #34d399;
 }
 
 nav ul {
