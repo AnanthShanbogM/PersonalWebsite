@@ -79,61 +79,9 @@
         </div>
     </footer>
 
-
-                'images/images_2/Black and White Ananth.jpg',
-                'images/images_2/new1.JPG',
-                'images/images_2/jj.jpg'
-            ];
-
-            // Create gallery items with random heights
-            images.forEach((imageSrc, index) => {
-                const item = document.createElement('div');
-                item.className = 'gallery-item';
-                
-                // Add random height variation
-                const randomHeight = 300 + Math.floor(Math.random() * 200);
-                item.style.height = `${randomHeight}px`;
-
-                const img = document.createElement('img');
-                img.src = imageSrc;
-                img.alt = `Photo ${index + 1}`;
-                
-                item.appendChild(img);
-                gallery.appendChild(item);
-            });
-
-            // Add lightbox functionality
-            gallery.addEventListener('click', (e) => {
-                if (e.target.tagName === 'IMG') {
-                    const img = e.target;
-                    const lightbox = document.createElement('div');
-                    lightbox.className = 'lightbox';
-                    lightbox.innerHTML = `
-                        <span class="close">&times;</span>
-                        <img src="${img.src}" alt="${img.alt}">
-                    `;
-                    document.body.appendChild(lightbox);
-
-                    lightbox.querySelector('.close').addEventListener('click', () => {
-                        lightbox.remove();
-                    });
-                }
-            });
-        }
-
-        // Initialize gallery when images are loaded
-        window.addEventListener('load', initializeGallery);
-
-        // Add animation on scroll
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('show');
-                }
-            });
-        }, {
-            threshold: 0.1
-        });
+    <script src="theme.js"></script>
+</body>
+</html>
 
         // Observe all elements with the class 'animate-on-scroll'
         document.querySelectorAll('.animate-on-scroll').forEach((el) => {
