@@ -14,6 +14,43 @@
             background-attachment: fixed;
         }
 
+        /* Lightbox styles */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+        }
+
+        .lightbox-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 90%;
+            max-height: 90%;
+            text-align: center;
+        }
+
+        .lightbox img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
         .gallery-container {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -147,7 +184,7 @@
                 <h3>Image Tools</h3>
                 <div class="tool-links">
                     <a href="https://image-editor-tool.windsurf.build/" target="_blank" class="tool-link">
-                        <i class="fas fa-image"></i> Image Resizer
+                        <i class="fas fa-image"></i> Photo-Editor
                     </a>
                 </div>
             </div>
@@ -183,7 +220,45 @@
                         <h3>${image.description}</h3>
                     </div>
                 `;
+                galleryItem.addEventListener('click', () => openLightbox(image.src, image.description));
                 galleryContainer.appendChild(galleryItem);
+            });
+        }
+
+        // Lightbox functionality
+        function openLightbox(src, description) {
+            const lightbox = document.createElement('div');
+            lightbox.className = 'lightbox';
+            lightbox.innerHTML = `
+                <div class="lightbox-content">
+                    <span class="lightbox-close">&times;</span>
+                    <img src="${src}" alt="${description}">
+                </div>
+            `;
+            
+            document.body.appendChild(lightbox);
+            lightbox.style.display = 'block';
+
+            const closeButton = lightbox.querySelector('.lightbox-close');
+            closeButton.addEventListener('click', () => {
+                lightbox.style.display = 'none';
+                lightbox.remove();
+            });
+
+            // Close on outside click
+            lightbox.addEventListener('click', (e) => {
+                if (e.target === lightbox) {
+                    lightbox.style.display = 'none';
+                    lightbox.remove();
+                }
+            });
+
+            // Close on escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    lightbox.style.display = 'none';
+                    lightbox.remove();
+                }
             });
         }
 
